@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+{% extends 'base.html'%}
+{% block content %}
+   
+<div class="container">
+    <h2>Controle de Estoque de Veículos</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-success text-white">
+                <tr>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Combustível</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in veiculosestoque.items %}
+                <tr>
+                    <td>{{v.marca}}</td>
+                    <td>{{v.modelo}}</td>
+                    <td>{{v.ano}}</td>
+                    <td>{{v.cor}}</td>
+                    <td>{{v.combustivel}}</td>
+                    <td>R$ {{v.preco}}</td>
+                    <td>{{v.estoque}} unidades</td>
+                    <td><a style="text-decoration: none; color: orange;" href="{{url_for('editar', id=v.id)}}">Editar</a></td>
+                    <td><a style="text-decoration: none; color: red;" href="{{url_for('estoque', id=v.id)}}" onclick="return confirm('Deseja mesmo excluir o cadastro do veículo {{v.modelo}}?')">Excluir</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p style="text-align: center">
+            {% if veiculosestoque.has_prev %}
+            <a href="{{url_for('estoque', page=veiculosestoque.prev_num)}}"><<< Anterior</a>
+            {% endif %}
+            {% if veiculosestoque.has_next %}
+            <a href="{{url_for('estoque', page=veiculosestoque.next_num)}}">Próximo >>></a>
+            {% endif %}
+        </p>
+    </div>
+    <hr>
+<details>
+    <summary>[ Cadastrar novo veículo ]</summary>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Cadastrar Novo Veículo</h2>
+        <form method="POST" action="{{ url_for('estoque') }}" class="mb-5">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="marca" class="form-label">Marca:</label>
+                    <input type="text" id="marca" name="marca" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="modelo" class="form-label">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="ano" class="form-label">Ano:</label>
+                    <input type="number" id="ano" name="ano" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="cor" class="form-label">Cor:</label>
+                    <input type="text" id="cor" name="cor" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="combustivel" class="form-label">Combustível:</label>
+                    <input type="text" id="combustivel" name="combustivel" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="preco" class="form-label">Preço:</label>
+                    <input type="number" step="0.01" id="preco" name="preco" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="estoque" class="form-label">Estoque:</label>
+                    <input type="number" id="estoque" name="estoque" class="form-control" required>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Cadastrar Veículo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</details>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock content %}
+</body>
+</html>
+
+
+    

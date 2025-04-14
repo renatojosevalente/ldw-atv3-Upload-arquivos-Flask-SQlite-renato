@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Loja de veículos</title>
+    <style>
+        .card {
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .vehicles-container {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container">
+        
+        <div class="row vehicles-container">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/Toyota-Corolla.jpg')}}" class="card-img-top" alt="Toyota Corolla">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Corolla</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2023<br>
+                            <strong>Preço:</strong> R$ 145.900<br>
+                            <strong>Cor:</strong> Prata
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/hb20.jpeg')}}" class="card-img-top" alt="Hyundai HB20">
+                    <div class="card-body">
+                        <h5 class="card-title">Hyundai HB20</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2024<br>
+                            <strong>Preço:</strong> R$ 74.990<br>
+                            <strong>Cor:</strong> Preto
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/toyota-hilux.jpg')}}" class="card-img-top" alt="Toyota Hilux">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Hilux</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2024<br>
+                            <strong>Preço:</strong> R$ 245.900<br>
+                            <strong>Cor:</strong> Branco
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/jeep-compass.jpg')}}" class="card-img-top" alt="Jeep Compass">
+                    <div class="card-body">
+                        <h5 class="card-title">Jeep Compass</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2024<br>
+                            <strong>Preço:</strong> R$ 189.900<br>
+                            <strong>Cor:</strong> Preto
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/golf.jpg')}}" class="card-img-top" alt="Volkswagen Golf">
+                    <div class="card-body">
+                        <h5 class="card-title">Volkswagen Golf</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2022<br>
+                            <strong>Preço:</strong> R$ 132.500<br>
+                            <strong>Cor:</strong> Vermelho
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{url_for('static', filename='img/tesla-model-3.jpg')}}" class="card-img-top" alt="Tesla Model 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Tesla Model 3</h5>
+                        <p class="card-text">
+                            <strong>Ano:</strong> 2024<br>
+                            <strong>Preço:</strong> R$ 359.990<br>
+                            <strong>Cor:</strong> Preto
+                        </p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
